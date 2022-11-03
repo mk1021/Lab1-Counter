@@ -26,7 +26,7 @@
 
 Just copied the code given.
 
-(insert image)
+![lab1_task1_counter](https://user-images.githubusercontent.com/93614234/199852355-eb93f9b0-f52a-4d05-9b6d-848252911ad2.png)
 
 ### **Step 5:** Compile the System Verilog model with the testbench
 
