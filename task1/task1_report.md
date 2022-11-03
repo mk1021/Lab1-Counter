@@ -18,15 +18,19 @@
         - In line 13 we use it to concatenate the first 7 bits from count and the 8th bit (LSB) from enable.
         - In line 12 we use it to concatenate 8 bits of '0' to start counting
     
-    
+![lab1_task1_counter](https://user-images.githubusercontent.com/93614234/199852355-eb93f9b0-f52a-4d05-9b6d-848252911ad2.png)
 
-![Counter.sv Code!] (https://github.com/mk1021/Lab1-Counter/blob/master/lab1_task1_counter.jpg "Counter.sv" )
+Here's the mapping between SV and counter circuit "synthesized" via Verilator:
+
+![image](https://user-images.githubusercontent.com/93614234/199852708-b3ea379d-ece5-4e15-99d7-20295f58b049.png)
+
 
 ### **Step 4:** Creating the testbench file in C++ (Counter_tb.cpp)
 
 Just copied the code given.
 
-![lab1_task1_counter](https://user-images.githubusercontent.com/93614234/199852355-eb93f9b0-f52a-4d05-9b6d-848252911ad2.png)
+![image](https://user-images.githubusercontent.com/93614234/199852783-d8c3ceca-8893-4989-9505-fca9d7bb9b7b.png)
+
 
 ### **Step 5:** Compile the System Verilog model with the testbench
 
@@ -44,21 +48,23 @@ Created a shell script called *doit.sh* containing all 3 commands to run them al
 
 By typing *'chmod +x doit.sh'* the permissions of the file change therefore means you only need to type *./doit.sh*
 
-(insert a picture of the doit.sh script)
+![image](https://user-images.githubusercontent.com/93614234/199853103-03c12aba-90fb-4143-a1ef-cad5cd3cae2b.png)
 
 ### **Step 6:** Plot the counter waveforms with GTKwave:
 
 - Opening *Vcounter.vcd* on GTKwave gave us this waveform: 
 
-(insert wave)
+![lab1_task1_FirstGTKWave](https://user-images.githubusercontent.com/93614234/199853158-eee664e1-2840-412b-b7b3-648237daf10d.png)
 
 - Execution of line 32 of the code in testbench is below. Reset turns on before the 2nd clock cycle and at the 15th clock cycle.
 
-(insert screenshot x2)
+![lab1_task1_rst_before2](https://user-images.githubusercontent.com/93614234/199853238-2da0aef0-7980-4eb4-89b2-adf0550b7cf1.png)
+
+![lab1_task1_rst_on](https://user-images.githubusercontent.com/93614234/199853213-8c91a378-636e-4f28-806b-daab717a25c4.png)
 
 - Execution of line 33 below is proved as the enable is low for the first 4 clock cycles.
 
-(insert screenshot)
+![lab1_task1_enon](https://user-images.githubusercontent.com/93614234/199853264-f187d4d3-f109-44ee-a5ef-2c8f6f305d47.png)
 
 **Why is the time axis in ps?** - The time period of each clock cycle is in picoseconds, but usually the scale used doesn't matter.
 
@@ -66,11 +72,9 @@ By typing *'chmod +x doit.sh'* the permissions of the file change therefore mean
 
 > **Modify the testbench so that the counter stops counting for 3 cycles when it reaches 0x9 and then resumes counting.**
 
-(insert code)
+![image](https://user-images.githubusercontent.com/93614234/199853514-8f9b0e3d-afdb-4b82-a176-0c9282020a42.png)
 
-- There is a one cycle delay for changes, therefore when *top->count = 8* the instruction has to be given. (more to write after question has been answered)   
-
-QUESTION TO ASK: why doesn the loop only run for s+1 and s+2?
+- There is a one cycle delay for changes, therefore when *top->count = 8* the instruction has to be given. The current cycle stays as it is, and then enable needs to turn off for the next 2 cycles more and then resume counting, therefore the next *if* statement addresses this, it stops *top->count* from increasing until the 3 cycles are completed.  
 
 ### **Challenge 2:** 
 
