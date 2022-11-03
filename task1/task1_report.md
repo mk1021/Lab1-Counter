@@ -74,7 +74,10 @@ By typing *'chmod +x doit.sh'* the permissions of the file change therefore mean
 
 ![image](https://user-images.githubusercontent.com/93614234/199853514-8f9b0e3d-afdb-4b82-a176-0c9282020a42.png)
 
-- There is a one cycle delay for changes, therefore when *top->count = 8* the instruction has to be given. The current cycle stays as it is, and then enable needs to turn off for the next 2 cycles more and then resume counting, therefore the next *if* statement addresses this, it stops *top->count* from increasing until the 3 cycles are completed.  
+- There is a one cycle delay for changes, therefore when *top->count = 8* the instruction has to be given. The current cycle stays as it is, and then enable needs to turn off for the next 2 cycles more and then resume counting, therefore the next *if* statement addresses this, it stops *top->count* from increasing until the 3 cycles are completed. 
+
+![lab1_task1_challenge](https://user-images.githubusercontent.com/93614234/199854421-f022a816-12b3-464d-b5e6-68b0ae89f3c9.png)
+
 
 ### **Challenge 2:** 
 
@@ -82,11 +85,13 @@ By typing *'chmod +x doit.sh'* the permissions of the file change therefore mean
 
 BEFORE:
 
-(before pic + waveform)
+![lab1_task1_challenge2b](https://user-images.githubusercontent.com/93614234/199854536-06d7cc1a-b716-4e27-9e3a-93df9c5e1e2e.png)
 
 AFTER:
 
-(after pic + waveform)
+![image](https://user-images.githubusercontent.com/93614234/199854598-a6c00dd5-410a-42d5-9c23-6ff815004ebc.png)
+
+![lab1_task1_challenge2a](https://user-images.githubusercontent.com/93614234/199854548-64acb957-71c8-47be-9f52-24d9e09b520f.png)
 
 - The `posedge rst` changes the reset so that it is implemented immediately without the one cycle delay.
 
